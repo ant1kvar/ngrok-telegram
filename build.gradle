@@ -1,0 +1,37 @@
+plugins {
+    id "java"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+
+group 'com.kost'
+version '1.0'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.20'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // https://mvnrepository.com/artifact/com.github.alexdlaird/java-ngrok
+    implementation 'com.github.alexdlaird:java-ngrok:1.5.4'
+    // https://mvnrepository.com/artifact/log4j/log4j
+    implementation 'log4j:log4j:1.2.17'
+    implementation 'org.projectlombok:lombok:1.18.20'
+    // https://mvnrepository.com/artifact/com.github.jengelman.gradle.plugins/shadow
+    implementation 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
+
+}
+shadowJar {
+    manifest {
+        attributes "Main-Class": "com.kost.Main"
+    }
+}
+
+
+
+test {
+    useJUnitPlatform()
+}
